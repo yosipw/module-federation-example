@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import 'reflect-metadata';
+//import 'reflect-metadata';
 
 import App from './app/app';
 

@@ -1,7 +1,25 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="mfe_angular">Mfe Angular</a></li>
-  <li><a routerLink="mfe_react">Mfe React</a></li>
-  <li><a routerLink="mfe_react_alternate">Mfe React - Alternative</a></li>
-</ul>
+<nav>
+  <ul class="remote-menu">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Home
+      </a>
+    </li>
+    <li>
+      <a routerLink="mfe_angular" routerLinkActive="active">
+        Angular MFE
+      </a>
+    </li>
+    <li>
+      <a routerLink="mfe_react" routerLinkActive="active">
+        React MFE
+      </a>
+    </li>
+    <li>
+      <a routerLink="mfe_react_alternate" routerLinkActive="active">
+        React MFE (Alt)
+      </a>
+    </li>
+  </ul>
+</nav>
 <router-outlet></router-outlet>

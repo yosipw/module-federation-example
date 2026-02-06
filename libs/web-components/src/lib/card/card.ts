@@ -16,6 +16,7 @@ export class Card extends LitElement {
 
   static override styles = css`
     article {
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
