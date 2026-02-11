@@ -1,6 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "jsx": "react",
+    "module": "esnext",
+    "target": "es2015",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
@@ -13,6 +16,8 @@
     "src/**/*.stories.jsx",
     "src/**/*.stories.tsx",
     "src/**/*.stories.mdx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     ".storybook/*.js",
     ".storybook/*.ts"
   ]
