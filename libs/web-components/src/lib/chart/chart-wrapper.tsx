@@ -1,7 +1,7 @@
 // libs/web-components/src/lib/chart/chart-wrapper.tsx
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { Root } from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 
 export interface ChartData {
   labels: string[];
@@ -94,6 +94,7 @@ export class WcChart extends HTMLElement {
   disconnectedCallback() {
     if (this.root) {
       this.root.unmount();
+      this.root = null;
     }
   }
 
