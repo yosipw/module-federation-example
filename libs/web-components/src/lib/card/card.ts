@@ -1,18 +1,28 @@
-import { css, CSSResultGroup, html, LitElement } from 'lit';
-import { property } from 'lit/decorators.js';
-import { CardDetails } from './card-details';
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import type { CardDetails } from './card-details'; // ✅ Use 'import type'
 
+@customElement('wc-card')
 export class Card extends LitElement {
-  private _details!: CardDetails;
-  @property()
+  @property({ type: Object })
   set details(value: CardDetails) {
-    const oldValue = this._details;
+    const oldVal = this._details;
     this._details = value;
-    this.requestUpdate('details', oldValue);
+    this.requestUpdate('details', oldVal);
   }
-  get details() {
+
+  get details(): CardDetails {
     return this._details;
   }
+
+  private _details: CardDetails = {
+    imgSrc: '',
+    imgAlt: '',
+    heading: '',
+    description: '',
+    actionUrl: '',
+    actionText: ''
+  };
 
   static override styles = css`
     article {
@@ -71,7 +81,7 @@ export class Card extends LitElement {
       --slate: #333;
       --primary: #0690de;
     }
-  ` as CSSResultGroup;
+  `;
 
   getDetails() {
     this.dispatchEvent(
@@ -86,7 +96,7 @@ export class Card extends LitElement {
   override render(): unknown {
     return html`
       <article>
-        <img src="${this.details.imageUrl}" alt="${this.details.title}" />
+        <img src="${this.details.imgSrc}" alt="${this.details.imgAlt}" />
         <p>${this.details.description}</p>
         <footer @click=${this.getDetails}>
           <div class="icon-wrapper">

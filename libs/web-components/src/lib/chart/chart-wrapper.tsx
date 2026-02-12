@@ -1,7 +1,8 @@
 // libs/web-components/src/lib/chart/chart-wrapper.tsx
 import { useEffect, useRef } from 'react';
-import * as ReactDOM from 'react-dom/client';
-import { Root } from 'react-dom/client';
+import React from 'react'; // ✅ Add this import
+import ReactDOM from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 
 export interface ChartData {
   labels: string[];
@@ -31,32 +32,27 @@ export function ChartComponent({ data }: { data: ChartData }) {
     // Draw bars
     data.values.forEach((value, i) => {
       const barHeight = (value / max) * (chartHeight - 20);
-      const x = i * barWidth + 10;
-      const y = chartHeight - barHeight;
-
-      // Draw bar
       ctx.fillStyle = '#0690de';
-      ctx.fillRect(x, y, barWidth - 20, barHeight);
-
-      // Draw value on top of bar
+      ctx.fillRect(
+        i * barWidth + 10,
+        height - barHeight - 20,
+        barWidth - 20,
+        barHeight
+      );
+      
       ctx.fillStyle = '#333';
-      ctx.font = 'bold 14px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(value.toString(), x + (barWidth - 20) / 2, y - 5);
-
-      // Draw label
       ctx.font = '12px sans-serif';
-      ctx.fillText(data.labels[i], x + (barWidth - 20) / 2, height - 10);
+      ctx.fillText(data.labels[i], i * barWidth + 15, height - 5);
     });
 
     // Draw axes
     ctx.strokeStyle = '#333';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(5, chartHeight);
-    ctx.lineTo(width - 5, chartHeight);
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, height - padding);
+    ctx.lineTo(width - padding, height - padding);
     ctx.stroke();
-
   }, [data]);
 
   return (
@@ -94,16 +90,17 @@ export class WcChart extends HTMLElement {
   disconnectedCallback() {
     if (this.root) {
       this.root.unmount();
+      this.root = null;
     }
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (name === 'data' && oldValue !== newValue) {
+    if (name === 'data' && newValue) {
       try {
         this._data = JSON.parse(newValue);
         this.render();
       } catch (e) {
-        console.error('Invalid JSON data for chart:', e);
+        console.error('Invalid data format', e);
       }
     }
   }

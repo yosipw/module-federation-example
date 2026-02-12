@@ -1,20 +1,22 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
-    "ignoreDeprecations": "6.0"
+    "jsx": "react-jsx", // ✅ Use automatic JSX transform
+    "module": "esnext",
+    "target": "es2015"
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
   "exclude": [
     "jest.config.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
-    "**/*.stories.ts",
-    "**/*.stories.js"
+    "src/**/*.spec.tsx",
+    "src/**/*.test.tsx"
   ]
 }

@@ -4,9 +4,9 @@ import { property } from 'lit/decorators.js';
 
 export class WcModal extends LitElement {
   @property({ type: Boolean }) open = false;
-  @property({ type: String }) title = '';
+  @property({ type: String }) override title = '';  // ✅
 
-  static styles = css`
+  static override styles = css`  // ✅
     .backdrop {
       position: fixed;
       top: 0;
@@ -45,7 +45,7 @@ export class WcModal extends LitElement {
     this.dispatchEvent(new CustomEvent('modal-close', { bubbles: true }));
   }
 
-  render() {
+  override render() {  // ✅
     if (!this.open) return null;
     
     return html`
