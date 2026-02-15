@@ -21,6 +21,12 @@
       "@module-federation-example/web-components": [
         "libs/web-components/src/index.ts"
       ],
+      "@module-federation-example/web-components/react": [
+        "libs/web-components/src/react.ts"
+      ],
+      "@module-federation-example/web-components/types": [
+        "libs/web-components/src/lib/chart/chart-types.ts"
+      ],
       "mfe_angular/Routes": [
         "apps/mfe_angular/src/app/remote-entry/entry.routes.ts"
       ],

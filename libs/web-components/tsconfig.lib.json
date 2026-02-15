@@ -7,13 +7,23 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "target": "es2015",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
   "exclude": [
     "jest.config.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.tsx",
     "**/*.stories.ts",
-    "**/*.stories.js"
+    "**/*.stories.tsx"
   ]
 }

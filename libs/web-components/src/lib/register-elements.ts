@@ -6,7 +6,6 @@ import { WcTabs } from './tabs/tabs';
 import { WcModal } from './modal/modal';
 import { WcInput } from './form/input';
 import { WcDataTable } from './table/data-table';
-import { WcChart } from './chart/chart-wrapper';
 
 export function registerElements(): void {
   customElements.get('wc-card') || customElements.define('wc-card', Card);
@@ -17,5 +16,4 @@ export function registerElements(): void {
   customElements.get('wc-modal') || customElements.define('wc-modal', WcModal);
   customElements.get('wc-input') || customElements.define('wc-input', WcInput);
   customElements.get('wc-data-table') || customElements.define('wc-data-table', WcDataTable);
-  customElements.get('wc-chart') || customElements.define('wc-chart', WcChart);
 }
