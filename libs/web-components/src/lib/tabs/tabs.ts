@@ -11,7 +11,7 @@ export class WcTabs extends LitElement {
   @property({ type: Array }) tabs: TabItem[] = [];
   @state() private activeIndex = 0;
 
-  static styles = css`
+  static override styles = css`
     :host { display: block; }
     .tabs-header {
       display: flex;
@@ -33,7 +33,7 @@ export class WcTabs extends LitElement {
     }
   `;
 
-  render() {
+  override render() {
     return html`
       <div class="tabs-header">
         ${this.tabs.map((tab, index) => html`

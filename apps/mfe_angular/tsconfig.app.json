@@ -6,6 +6,17 @@
     "target": "ES2020"
   },
   "files": ["src/main.ts", "src/app/remote-entry/entry.routes.ts"],
-  "include": ["src/**/*.d.ts"],
-  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
+  "include": [
+    "src/**/*.d.ts",
+    "../../libs/web-components/src/**/*.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "../../libs/web-components/src/**/*.tsx",
+    "../../libs/web-components/src/**/*.stories.ts",
+    "../../libs/web-components/src/**/*.stories.tsx",
+    "../../libs/web-components/src/lib/chart/**/*"
+  ]
 }

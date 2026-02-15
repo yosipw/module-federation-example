@@ -4,10 +4,12 @@
     "allowJs": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
   },
   "files": [],
-  "include": [],
+  "include": ["typings/**/*.d.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"

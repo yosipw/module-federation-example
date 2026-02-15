@@ -1,5 +1,10 @@
 export interface CardDetails {
-  title: string;
-  description: string;
-  imageUrl: string;
+  imgSrc?: string;
+  imgAlt?: string;
+  imageUrl?: string;
+  heading?: string;
+  description?: string;
+  actionUrl?: string;
+  actionText?: string;
+  title?: string;
 }

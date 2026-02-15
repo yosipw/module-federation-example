@@ -10,7 +10,7 @@ export class WcInput extends LitElement {
   @property({ type: String }) pattern = '';
   @state() private error = '';
 
-  static styles = css`
+  static override styles = css`
     :host { display: block; margin-bottom: 16px; }
     label { display: block; margin-bottom: 4px; font-weight: 500; }
     input {
@@ -46,7 +46,7 @@ export class WcInput extends LitElement {
     }));
   }
 
-  render() {
+  override render() {
     return html`
       <label>${this.label}</label>
       <input

@@ -14,7 +14,7 @@ export class WcDataTable extends LitElement {
   @property({ type: String }) sortKey = '';
   @property({ type: String }) sortDirection: 'asc' | 'desc' = 'asc';
 
-  static styles = css`
+  static override styles = css`
     table {
       width: 100%;
       border-collapse: collapse;
@@ -52,7 +52,7 @@ export class WcDataTable extends LitElement {
     });
   }
 
-  render() {
+  override render() {
     return html`
       <table>
         <thead>

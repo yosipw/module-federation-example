@@ -9,11 +9,8 @@ import { WcDataTable } from './table/data-table';
 import { WcChart } from './chart/chart-wrapper';
 
 export function registerElements(): void {
-  // Existing
   customElements.get('wc-card') || customElements.define('wc-card', Card);
   customElements.get('wc-icon') || customElements.define('wc-icon', Icon);
-  
-  // New components
   customElements.get('vanilla-counter') || customElements.define('vanilla-counter', VanillaCounter);
   customElements.get('vanilla-todo') || customElements.define('vanilla-todo', VanillaTodo);
   customElements.get('wc-tabs') || customElements.define('wc-tabs', WcTabs);
