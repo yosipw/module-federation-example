@@ -7,7 +7,6 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "types": ["node"],
-    "ignoreDeprecations": "6.0"
   },
   "include": ["src/**/*.ts"],
   "exclude": [
