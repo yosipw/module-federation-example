@@ -1,8 +1,7 @@
-/// <reference types="react" />
+import * as React from 'react';
+import type { CardDetails } from '@module-federation-example/web-components';
 
-import type { CardDetails, ChartData } from '@module-federation-example/web-components';
-
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       // ENTRY
