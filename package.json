@@ -33,6 +33,7 @@
     "@nx/js": "21.6.10",
     "@nx/module-federation": "21.6.10",
     "@nx/react": "21.6.10",
+    "@nx/angular": "21.6.10",
     "@nx/storybook": "21.6.10",
     "@nx/web": "21.6.10",
     "@nx/webpack": "21.6.10",
@@ -100,8 +101,8 @@
     "lit-html": "^3.2.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-router-dom": "^7.13.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "~8.0.0",
     "tsconfig-paths-webpack-plugin": "^4.2.0",
     "zone.js": "~0.15.0"
   }

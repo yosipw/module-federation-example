@@ -19,8 +19,8 @@ export class WcChart extends HTMLElement {
     return this._data;
   }
 
-  set data(value: ChartData) {
-    this._data = value;
+  set data(value: string) {
+    this._data = JSON.parse(value);
     this.render();
   }
 
@@ -30,8 +30,10 @@ export class WcChart extends HTMLElement {
 
   disconnectedCallback() {
     if (this.root) {
-      this.root.unmount();
-      this.root = null;
+      requestAnimationFrame(() => {
+        this.root.unmount();
+        this.root = null;
+      });
     }
   }
 

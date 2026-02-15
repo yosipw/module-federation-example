@@ -1,3 +1,4 @@
+import 'reflect-metadata'; 
 import { Card } from './card/card';
 import { Icon } from './icon/icon';
 import { VanillaCounter } from './counter/vanilla-counter';
