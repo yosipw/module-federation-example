@@ -31,7 +31,7 @@ export class WcChart extends HTMLElement {
   disconnectedCallback() {
     if (this.root) {
       requestAnimationFrame(() => {
-        this.root.unmount();
+        this?.root?.unmount();
         this.root = null;
       });
     }
