@@ -67,8 +67,8 @@
       "continuous": true,
       "executor": "@nx/angular:dev-server",
       "options": {
-        "port": 4201,
-        "publicHost": "http://localhost:4201"
+        "port": 5201,
+        "publicHost": "http://localhost:5201"
       },
       "configurations": {
         "production": {
@@ -102,7 +102,7 @@
       "defaultConfiguration": "production",
       "options": {
         "buildTarget": "mfe_angular:build",
-        "port": 4201,
+        "port": 5201,
         "watch": false
       },
       "configurations": {

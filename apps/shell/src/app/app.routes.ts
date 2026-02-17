@@ -10,21 +10,34 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'mfe_react',
-    component: WebComponentWrapper,
-    data: {
-      type: 'script',
-      remoteEntry: 'http://localhost:4202/remoteEntry.js',
-      remoteName: 'mfe_react',
-      exposedModule: './Module',
-      elementName: 'mfe-react',
-    },
+    children: [
+      {
+        path: '**', // Catch all sub-routes
+        component: WebComponentWrapper,
+        data: {
+          type: 'script',
+          remoteEntry: 'http://localhost:5202/remoteEntry.js',
+          remoteName: 'mfe_react',
+          exposedModule: './Module',
+          elementName: 'mfe-react',
+          props: {
+            basename: '/mfe_react',
+          },
+        },
+      },
+    ],
   },
   {
     path: 'mfe_react_alternate',
-    loadComponent: () =>
-      import('./components/react-wrapper.component').then(
-        (c) => c.ReactWrapperComponent
-      ),
+    children: [
+      {
+        path: '**', // Catch all sub-routes
+        loadComponent: () =>
+          import('./components/react-wrapper.component').then(
+            (c) => c.ReactWrapperComponent
+          ),
+      },
+    ],
   },
   {
     path: '',

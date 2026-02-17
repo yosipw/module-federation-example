@@ -6,7 +6,7 @@ init({
   remotes: [
     {
       name: 'mfe_react',
-      entry: 'http://localhost:4202/remoteEntry.js',
+      entry: 'http://localhost:5202/remoteEntry.js',
     },
   ],
 });

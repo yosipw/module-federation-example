@@ -10,8 +10,8 @@ export default defineConfig({
         production: 'npx nx run shell:serve-static',
       },
       ciWebServerCommand: 'npx nx run shell:serve-static',
-      ciBaseUrl: 'http://localhost:4200',
+      ciBaseUrl: 'http://localhost:5200',
     }),
-    baseUrl: 'http://localhost:4200',
+    baseUrl: 'http://localhost:5200',
   },
 });

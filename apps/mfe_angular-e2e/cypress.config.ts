@@ -10,8 +10,8 @@ export default defineConfig({
         production: 'npx nx run mfe_angular:serve-static',
       },
       ciWebServerCommand: 'npx nx run mfe_angular:serve-static',
-      ciBaseUrl: 'http://localhost:4200',
+      ciBaseUrl: 'http://localhost:5200',
     }),
-    baseUrl: 'http://localhost:4201',
+    baseUrl: 'http://localhost:5201',
   },
 });

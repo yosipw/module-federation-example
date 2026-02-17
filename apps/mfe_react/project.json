@@ -59,7 +59,7 @@
       "options": {
         "buildTarget": "mfe_react:build",
         "hmr": true,
-        "port": 4202
+        "port": 5202
       },
       "configurations": {
         "development": {
