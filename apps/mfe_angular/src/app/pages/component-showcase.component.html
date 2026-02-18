@@ -1,0 +1,94 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Component Showcase</h1>
+    <p>Explore our collection of reusable web components</p>
+  </div>
+
+  <div class="components-grid">
+    <!-- Counter Component -->
+    <section class="component-card">
+      <h2>Counter Component</h2>
+      <p class="component-description">
+        A simple counter with increment and decrement functionality
+      </p>
+      <vanilla-counter></vanilla-counter>
+    </section>
+
+    <!-- Todo List Component -->
+    <section class="component-card">
+      <h2>Todo List Component</h2>
+      <p class="component-description">
+        Manage your tasks with this interactive todo list
+      </p>
+      <vanilla-todo></vanilla-todo>
+    </section>
+
+    <!-- Icon Component -->
+    <section class="component-card">
+      <h2>Icon Component</h2>
+      <p class="component-description">
+        Material Design icons as web components
+      </p>
+      <div class="icon-showcase">
+        <wc-icon icon="home" [attr.size]="32"></wc-icon>
+        <wc-icon icon="search" [attr.size]="32"></wc-icon>
+        <wc-icon icon="settings" [attr.size]="32"></wc-icon>
+        <wc-icon icon="favorite" [attr.size]="32"></wc-icon>
+      </div>
+    </section>
+
+    <!-- Tabs Component -->
+    <section class="component-card">
+      <h2>Tabs Component</h2>
+      <p class="component-description">
+        Organize content into navigable tabs
+      </p>
+      <wc-tabs [attr.tabs]="tabsData"></wc-tabs>
+    </section>
+
+    <!-- Modal Component -->
+    <section class="component-card">
+      <h2>Modal Component</h2>
+      <p class="component-description">
+        Dialog overlay for important information
+      </p>
+      <button class="demo-button" (click)="openModal()">
+        Open Modal
+      </button>
+      <wc-modal 
+        [attr.open]="showModal" 
+        title="Welcome!"
+        (close)="closeModal()">
+        <p>This is a modal component built with Lit and shared across frameworks.</p>
+      </wc-modal>
+    </section>
+
+    <!-- Input Component -->
+    <section class="component-card">
+      <h2>Input Component</h2>
+      <p class="component-description">
+        Form input with validation
+      </p>
+      <div class="input-demo">
+        <wc-input 
+          label="Email Address" 
+          type="email" 
+          [attr.required]="true"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </wc-input>
+      </div>
+    </section>
+
+    <!-- Data Table Component -->
+    <section class="component-card full-width">
+      <h2>Data Table Component</h2>
+      <p class="component-description">
+        Display tabular data with sorting and filtering
+      </p>
+      <wc-data-table 
+        [attr.columns]="tableColumns" 
+        [attr.data]="tableData">
+      </wc-data-table>
+    </section>
+  </div>
+</div>

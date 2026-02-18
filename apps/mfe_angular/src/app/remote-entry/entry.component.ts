@@ -1,10 +1,31 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NavigationComponent } from '../components/navigation.component';
 
 @Component({
-  imports: [CommonModule, RouterModule],
-  selector: 'app-mfe_angular-entry',
-  template: `<main><router-outlet></router-outlet></main>`,
+  standalone: true,
+  imports: [CommonModule, RouterModule, NavigationComponent],
+  selector: 'app-mfe-angular-entry',
+  template: `
+    <div class="app-layout">
+      <app-navigation></app-navigation>
+      <main class="main-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  `,
+  styles: [`
+    .app-layout {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f8f9fa;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+  `]
 })
 export class RemoteEntryComponent {}

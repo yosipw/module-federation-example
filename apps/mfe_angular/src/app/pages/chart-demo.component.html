@@ -1,0 +1,27 @@
+<div class="page-container">
+  <div class="page-header">
+    <h1>Sales Dashboard</h1>
+    <p>Interactive charts powered by React components, wrapped in web components</p>
+  </div>
+
+  <div *ngIf="chartLoaded; else loading" class="charts-grid">
+    <section class="chart-card">
+      <h2>Monthly Sales Performance</h2>
+      <p class="chart-description">Track sales metrics across the first half of the year</p>
+      <wc-chart [attr.data]="salesDataJson"></wc-chart>
+    </section>
+
+    <section class="chart-card">
+      <h2>Quarterly Revenue</h2>
+      <p class="chart-description">Revenue breakdown by quarter</p>
+      <wc-chart [attr.data]="revenueDataJson"></wc-chart>
+    </section>
+  </div>
+
+  <ng-template #loading>
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Loading chart components...</p>
+    </div>
+  </ng-template>
+</div>
