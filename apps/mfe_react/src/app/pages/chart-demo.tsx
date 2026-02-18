@@ -16,6 +16,7 @@ export function ChartDemo() {
     <div style={{ padding: '40px' }}>
       <h1>Sales Dashboard</h1>
       <wc-chart data={JSON.stringify(salesData)}></wc-chart>
+      <wc-chart-lit data={salesData}></wc-chart-lit>
     </div>
   );
 }

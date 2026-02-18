@@ -21,19 +21,29 @@ function RouteDebugger() {
   return null;
 }
 
+/**
+ * Automatically detect basename from URL
+ * Supports any path like /mfe_react, /mfe_react_alternate, /any-path
+ * Returns '/' for standalone mode
+ */
 const getBasename = () => {
   const path = window.location.pathname;
-  console.log('Detecting basename from:', path);
   
-  if (path.startsWith('/mfe_react_alternate')) {
-    console.log('Using basename: /mfe_react_alternate');
-    return '/mfe_react_alternate';
+  // If we're at root or just one level deep, use '/'
+  if (path === '/' || !path.includes('/')) {
+    return '/';
   }
-  if (path.startsWith('/mfe_react')) {
-    console.log('Using basename: /mfe_react');
-    return '/mfe_react';
+  
+  // Extract first path segment (everything before second /)
+  const segments = path.split('/').filter(Boolean);
+  
+  // If there are segments, use the first one as basename
+  if (segments.length > 0) {
+    const detectedBasename = `/${segments[0]}`;
+    console.log('Auto-detected basename:', detectedBasename);
+    return detectedBasename;
   }
-  console.log('Using basename: / (standalone)');
+  
   return '/';
 };
 

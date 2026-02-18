@@ -6,7 +6,8 @@
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "useDefineForClassFields": false,
   },
   "files": [],
   "include": ["typings/**/*.d.ts"],

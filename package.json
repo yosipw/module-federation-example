@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "storybook": "cls && nx storybook web-components",
+    "storybook": "cls && nx storybook web-components --skip-nx-cache",
     "start:angular": "nx serve shell --devRemotes=mfe_angular",
     "start:react": "nx serve shell --devRemotes=mfe_react",
     "build:angular": "nx build mfe_angular --configuration=development",

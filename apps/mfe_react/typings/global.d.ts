@@ -28,6 +28,13 @@ declare module 'react' {
       > & {
         data?: string; // ✅ JSON string
       };
+      // ✅ Add this declaration
+      'wc-chart-lit': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & {
+        data?: ChartData; // Object instead of string
+      };
       'vanilla-counter': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
