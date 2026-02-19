@@ -1,20 +1,33 @@
 import { Link, useLocation } from 'react-router-dom';
-import './navigation.scss';
+import styles from './navigation.module.scss';
 
 export function Navigation() {
   const location = useLocation();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
-    <nav className="navigation">
-      <div className="nav-container">
-        <h2 className="nav-title">React MFE</h2>
-        <ul className="nav-links">
+    <nav className={styles.navigation}>
+      <div className={styles.navContainer}>
+        <h2 className={styles.navTitle}>React MFE</h2>
+        <ul className={styles.navLinks}>
           <li>
             <Link 
               to="/" 
-              className={isActive('/') ? 'active' : ''}
+              className={isActive('/') ? styles.active : ''}
+            >
+              Welcome
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/cards" 
+              className={isActive('/cards') ? styles.active : ''}
             >
               Card Display
             </Link>
@@ -22,7 +35,7 @@ export function Navigation() {
           <li>
             <Link 
               to="/chart" 
-              className={isActive('/chart') ? 'active' : ''}
+              className={isActive('/chart') ? styles.active : ''}
             >
               Chart Demo
             </Link>
@@ -30,17 +43,9 @@ export function Navigation() {
           <li>
             <Link 
               to="/showcase" 
-              className={isActive('/showcase') ? 'active' : ''}
+              className={isActive('/showcase') ? styles.active : ''}
             >
               Component Showcase
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/welcome" 
-              className={isActive('/welcome') ? 'active' : ''}
-            >
-              Welcome
             </Link>
           </li>
         </ul>

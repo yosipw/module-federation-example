@@ -1,69 +1,127 @@
-import { useEffect, useRef, useState } from 'react';
-import { registerElements, type CardDetails } from '@module-federation-example/web-components';
+import { useState, useEffect, useRef } from 'react';
+import {
+  CardDetails,
+  registerElements,
+} from '@module-federation-example/web-components';
 
-import './card-display.scss';
+import './card-display.module.scss';
 
-export function CardDisplay() {
-  const [cardDetails, setCardDetails] = useState<CardDetails[]>([]);
-  const cardContainerRef = useRef<HTMLDivElement>(null);
+registerElements();
+
+export default function CardDisplay() {
+  const [cardDetails, setCardDetails] = useState<CardDetails[] | null>(null);
+  const [currentDetails, setCurrentDetails] = useState<CardDetails | null>(
+    null
+  );
+  const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Register web components
-    registerElements();
-
-    // Simulate loading card data
+    if (cardDetails) {
+      return;
+    }
     setTimeout(() => {
       setCardDetails([
         {
-          title: 'Business Management',
-          description: 'Nulla dapibus venenatis tempor. Aliquam aliquet molestie porttitor.',
-          imageUrl: './images/businessman-working-modern-compter-document-management-system-virtual-online-documentation.webp'
+          title: 'Lorem',
+          description:
+            'Maecenas tempor dolor non augue ullamcorper, ut tempus lorem placerat. Integer tristique vehicula urna, eu varius felis vestibulum id. Mauris in augue sed nibh eleifend fringilla ut id tellus. Mauris risus tortor, semper eget commodo eget, elementum sed eros. Curabitur pretium purus et ipsum sodales ultricies.',
+          imageUrl: './images/cityscape-data.webp',
         },
         {
-          title: 'Technology Solutions',
-          description: 'Aliquam aliquet molestie porttitor. Quisque tortor enim.',
-          imageUrl: './images/tech-pictures-3840-x-2160-yfyjbz7mx5k6q6ig.webp'
+          title: 'Lipsum',
+          description:
+            'Aliquam blandit magna vel quam efficitur, vel lacinia mi facilisis. Donec ut viverra arcu. Maecenas ac dignissim turpis. Nullam sagittis mauris a porta ullamcorper. Aenean quis accumsan velit, in volutpat nunc. Aenean sollicitudin tincidunt odio, vitae iaculis eros tempus ac. Vivamus sed tempus augue, ac faucibus tellus. In malesuada purus bibendum, vestibulum augue eget, vehicula sapien. Duis maximus massa non ultricies dignissim.',
+          imageUrl:
+            './images/businessman-working-modern-compter-document-management-system-virtual-online-documentation.webp',
         },
         {
-          title: 'Innovation Hub',
-          description: 'Quisque tortor enim, venenatis quis ipsum in, gravida sodales lectus.',
-          imageUrl: './images/businessman-working-modern-compter-document-management-system-virtual-online-documentation.webp'
-        }
+          title: 'Ipsum',
+          description:
+            'Nulla dapibus venenatis tempor. Aliquam aliquet molestie porttitor. Quisque tortor enim, imperdiet non nulla sed, viverra placerat tellus. Nulla eleifend malesuada lectus ac consectetur.',
+          imageUrl: './images/tech-pictures-3840-x-2160-yfyjbz7mx5k6q6ig.webp',
+        },
       ]);
-    }, 1000);
+    }, 2000);
   }, []);
 
+  useEffect(() => {
+    const container = cardContainerRef.current;
+    if (!container) {
+      return;
+    }
+
+    const elements = container.querySelectorAll<any>('wc-card');
+
+    const onGetDetails = (event: any) => {
+      setCurrentDetails(event.detail);
+    };
+
+    elements.forEach((el) => {
+      el.addEventListener('card-details-get', onGetDetails);
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        el.removeEventListener('custom-event', onGetDetails);
+      });
+    };
+  }, [cardDetails]);
+
+  if (!cardDetails) {
+    return (
+      <>
+        <p>Cards are currently loading</p>
+      </>
+    );
+  }
+
   return (
-    <div className="page-container">
-      <div className="page-header">
-        <h1>Web Component Cards</h1>
-        <p>Interactive card components built with Lit and shared across frameworks</p>
-      </div>
-      
-      <section className="card-grid" ref={cardContainerRef}>
-        {cardDetails.length === 0 ? (
-          <div className="loading">Loading cards...</div>
-        ) : (
-          cardDetails.map((details, i) => {
-            const cardElement = document.createElement('wc-card') as any;
-            cardElement.details = details;
-            
-            return (
-              <div 
-                key={i}
-                className="card-wrapper"
-                ref={(node) => {
-                  if (node && !node.querySelector('wc-card')) {
-                    node.appendChild(cardElement);
-                  }
-                }}
-              />
-            );
-          })
-        )}
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+                article {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 100%;
+                    gap: 30px;
+                    justify-content: center;
+                }
+
+                .display {
+                    display: flex;
+                    flex: 1 1 100%;
+                    gap: 15px;
+                }
+               
+                .current {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+          `,
+        }}
+      />
+      <section className="display" ref={cardContainerRef}>
+        {cardDetails.map((x: CardDetails, i) => (
+          <wc-card key={i} details={x}></wc-card>
+        ))}
       </section>
-    </div>
+      {currentDetails ? (
+        <section className="current">
+          <span>
+            <strong>Title:</strong> {currentDetails.title}
+          </span>
+          <span>
+            <strong>Description:</strong> {currentDetails.description}
+          </span>
+          <span>
+            <strong>ImageUrl:</strong> {currentDetails.imageUrl}
+          </span>
+        </section>
+      ) : (
+        ``
+      )}
+    </>
   );
 }
-
-export default CardDisplay;

@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/table/data-table.ts
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 

@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/counter/vanilla-counter.ts
 export class VanillaCounter extends HTMLElement {
   private count = 0;
   private shadow: ShadowRoot;
@@ -11,7 +10,6 @@ export class VanillaCounter extends HTMLElement {
   connectedCallback() {
     this.render();
     
-    // Event listener on shadow root
     this.shadow.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'BUTTON') {

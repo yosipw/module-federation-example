@@ -1,4 +1,3 @@
-// libs/web-components/src/stories/vanilla-counter.stories.ts
 import { registerElements } from '../lib/register-elements';
 
 registerElements();

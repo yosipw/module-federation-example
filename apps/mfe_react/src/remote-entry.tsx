@@ -10,7 +10,7 @@ class MfeReactElement extends HTMLElement {
 
   connectedCallback() {
     const mountPoint = document.createElement('div');
-    this.attachShadow({ mode: 'open' }).appendChild(mountPoint);
+    this.appendChild(mountPoint);
 
     this.root = createRoot(mountPoint);
     this.root.render(

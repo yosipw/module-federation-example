@@ -1,4 +1,3 @@
-// libs/web-components/src/stories/modal.stories.ts
 import { registerElements } from '../lib/register-elements';
 
 registerElements();

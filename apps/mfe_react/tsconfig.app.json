@@ -2,18 +2,20 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["node"]
+    "types": ["node", 
+      "@nx/react/typings/cssmodule.d.ts"]
   },
   "files": [
     "src/main.ts",
+    "src/typings/css-modules.d.ts",
     "typings/global.d.ts"
   ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.d.ts",
-    "typings/**/*.d.ts",
-    "../../libs/web-components/src/**/*.ts"
+    "src/typings/**/*.d.ts",
+    "typings/**/*.d.ts"
   ],
   "exclude": [
     "jest.config.ts",

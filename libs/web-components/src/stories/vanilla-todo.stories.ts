@@ -1,4 +1,3 @@
-// libs/web-components/src/stories/vanilla-todo.stories.ts
 import { registerElements } from '../lib/register-elements';
 
 registerElements();
@@ -25,10 +24,8 @@ export const PrePopulated = () => {
   const container = document.createElement('div');
   const todo = document.createElement('vanilla-todo') as any;
   
-  // Note: This would require adding a method to set initial todos
   container.appendChild(todo);
   
-  // Simulate adding todos
   setTimeout(() => {
     const input = todo.shadowRoot?.querySelector('input');
     const form = todo.shadowRoot?.querySelector('form');

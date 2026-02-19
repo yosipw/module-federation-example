@@ -26,9 +26,8 @@ declare module 'react' {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        data?: string; // ✅ JSON string
+        data?: string;
       };
-      // ✅ Add this declaration
       'wc-chart-lit': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
@@ -47,7 +46,7 @@ declare module 'react' {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & {
-        tabs?: string; // ✅ JSON string
+        tabs?: string;
       };
       'wc-modal': React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,

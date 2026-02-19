@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/chart/chart-wrapper.ts
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import type { Root } from 'react-dom/client';

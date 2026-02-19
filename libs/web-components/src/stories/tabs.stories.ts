@@ -1,4 +1,3 @@
-// libs/web-components/src/stories/tabs.stories.ts
 import { html } from 'lit-html';
 import { registerElements } from '../lib/register-elements';
 

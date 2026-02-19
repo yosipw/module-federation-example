@@ -46,23 +46,6 @@
       <wc-tabs [attr.tabs]="tabsData"></wc-tabs>
     </section>
 
-    <!-- Modal Component -->
-    <section class="component-card">
-      <h2>Modal Component</h2>
-      <p class="component-description">
-        Dialog overlay for important information
-      </p>
-      <button class="demo-button" (click)="openModal()">
-        Open Modal
-      </button>
-      <wc-modal 
-        [attr.open]="showModal" 
-        title="Welcome!"
-        (close)="closeModal()">
-        <p>This is a modal component built with Lit and shared across frameworks.</p>
-      </wc-modal>
-    </section>
-
     <!-- Input Component -->
     <section class="component-card">
       <h2>Input Component</h2>

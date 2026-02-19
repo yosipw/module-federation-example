@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/chart/chart-wrapper.ts
 import * as React from 'react';
 import { LitElement } from 'lit';
 import { property } from 'lit/decorators.js';

@@ -1,4 +1,3 @@
-// libs/web-components/src/stories/data-table.stories.ts
 import { registerElements } from '../lib/register-elements';
 
 registerElements();

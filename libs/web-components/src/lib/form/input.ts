@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/form/input.ts
 import { LitElement, html, css } from 'lit';
 import { property, state } from 'lit/decorators.js';
 

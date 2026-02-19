@@ -6,7 +6,7 @@
   z-index: 100;
 }
 
-.nav-container {
+.navContainer {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
@@ -16,14 +16,14 @@
   gap: 10px;
 }
 
-.nav-title {
+.navTitle {
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
 }
 
-.nav-links {
+.navLinks {
   display: flex;
   list-style: none;
   margin: 0;
@@ -57,13 +57,13 @@
 }
 
 @media (max-width: 768px) {
-  .nav-container {
+  .navContainer {
     flex-direction: column;
     height: auto;
     padding: 20px;
   }
 
-  .nav-links {
+  .navLinks {
     flex-direction: column;
     width: 100%;
     gap: 5px;

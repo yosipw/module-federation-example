@@ -1,12 +1,11 @@
-// libs/web-components/src/lib/modal/modal.ts
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 
 export class WcModal extends LitElement {
   @property({ type: Boolean }) open = false;
-  @property({ type: String }) override title = '';  // ✅ Add override
+  @property({ type: String }) override title = '';
 
-  static override styles = css`  // ✅ Add override
+  static override styles = css`
     .backdrop {
       position: fixed;
       top: 0;
@@ -45,7 +44,7 @@ export class WcModal extends LitElement {
     this.dispatchEvent(new CustomEvent('modal-close', { bubbles: true }));
   }
 
-  override render() {  // ✅ Add override
+  override render() {
     if (!this.open) return null;
     
     return html`

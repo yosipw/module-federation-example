@@ -1,6 +1,6 @@
 import { css, CSSResultGroup, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import type { CardDetails } from './card-details'; // ✅ Use 'import type'
+import type { CardDetails } from './card-details';
 
 export class Card extends LitElement {
   private _details!: CardDetails;
@@ -86,8 +86,8 @@ export class Card extends LitElement {
   override render(): unknown {
     return html`
       <article>
-        <img src="${this.details?.imageUrl || this.details?.imgSrc}" alt="${this.details?.title || this.details?.imgAlt}" />
-        <p>${this.details?.description}</p>
+        <img src="${this.details.imageUrl}" alt="${this.details.title}" />
+        <p>${this.details.description}</p>
         <footer @click=${this.getDetails}>
           <div class="icon-wrapper">
             <wc-icon icon="assignment"></wc-icon>
@@ -98,6 +98,3 @@ export class Card extends LitElement {
     `;
   }
 }
-
-// Export CardDetails for consumers
-export type { CardDetails };

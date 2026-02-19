@@ -1,10 +1,9 @@
-// apps/mfe_react/src/app/pages/chart-demo.tsx
 import { useEffect } from 'react';
 import { registerChartComponent } from '@module-federation-example/web-components/react';
 
 export function ChartDemo() {
   useEffect(() => {
-    registerChartComponent(); // ✅ Only register chart component
+    registerChartComponent();
   }, []);
 
   const salesData = {

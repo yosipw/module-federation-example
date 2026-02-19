@@ -4,10 +4,17 @@ import { RemoteEntryComponent } from './entry.component';
 export const remoteRoutes: Route[] = [
   {
     path: '',
-    component: RemoteEntryComponent, // ✅ Use layout component as parent
+    component: RemoteEntryComponent,
     children: [
       {
         path: '',
+        loadComponent: () =>
+          import('./nx-welcome.component').then(
+            (c) => c.NxWelcomeComponent
+          ),
+      },
+      {
+        path: 'cards',
         loadComponent: () =>
           import('../components/card-display.component').then(
             (c) => c.CardDisplayComponent
@@ -25,13 +32,6 @@ export const remoteRoutes: Route[] = [
         loadComponent: () =>
           import('../pages/component-showcase.component').then(
             (c) => c.ComponentShowcaseComponent
-          ),
-      },
-      {
-        path: 'welcome',
-        loadComponent: () =>
-          import('./nx-welcome.component').then(
-            (c) => c.NxWelcomeComponent
           ),
       },
     ],

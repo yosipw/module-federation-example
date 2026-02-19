@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from './navigation';
-import './layout.scss';
+import './layout.module.scss';
 
 export function Layout() {
   return (

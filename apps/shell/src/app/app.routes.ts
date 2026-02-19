@@ -12,7 +12,7 @@ export const appRoutes: Route[] = [
     path: 'mfe_react',
     children: [
       {
-        path: '**', // Catch all sub-routes
+        path: '**',
         component: WebComponentWrapper,
         data: {
           type: 'script',
@@ -31,7 +31,7 @@ export const appRoutes: Route[] = [
     path: 'mfe_react_alternate',
     children: [
       {
-        path: '**', // Catch all sub-routes
+        path: '**',
         loadComponent: () =>
           import('./components/react-wrapper.component').then(
             (c) => c.ReactWrapperComponent

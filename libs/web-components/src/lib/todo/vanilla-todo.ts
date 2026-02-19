@@ -1,4 +1,3 @@
-// libs/web-components/src/lib/todo/vanilla-todo.ts
 export class VanillaTodo extends HTMLElement {
   private shadow: ShadowRoot;
   private todos: string[] = [];

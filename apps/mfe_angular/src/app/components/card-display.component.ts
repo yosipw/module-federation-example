@@ -5,7 +5,7 @@ import {
   registerElements,
 } from '@module-federation-example/web-components';
 
-registerElements(); // ✅ Only registers non-React components
+registerElements();
 
 @Component({
   imports: [CommonModule],

@@ -32,14 +32,4 @@ export class ComponentShowcaseComponent implements OnInit {
   ngOnInit() {
     registerElements();
   }
-
-  showModal = false;
-
-  openModal() {
-    this.showModal = true;
-  }
-
-  closeModal() {
-    this.showModal = false;
-  }
 }
